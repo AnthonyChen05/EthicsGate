@@ -70,7 +70,7 @@ export default function LandingPage() {
                 asChild
                 className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm"
               >
-                <Link href="/signup">Get Started</Link>
+                <Link href="/contact">Get Started</Link>
               </Button>
             </div>
           </div>
@@ -101,8 +101,8 @@ export default function LandingPage() {
               size="lg"
               className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm px-6"
             >
-              <Link href="/signup">
-                Start Your First Submission
+              <Link href="/contact">
+                Request a Demo
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -164,8 +164,8 @@ export default function LandingPage() {
             size="lg"
             className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm px-6"
           >
-            <Link href="/signup">
-              Create Your Organization
+            <Link href="/contact">
+              Contact Sales
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
