@@ -2,12 +2,12 @@
 
 export type UserRole = 'researcher' | 'reviewer' | 'admin';
 
-export type ProposalStatus = 
-  | 'draft' 
-  | 'submitted' 
-  | 'under_review' 
-  | 'approved' 
-  | 'rejected' 
+export type ProposalStatus =
+  | 'draft'
+  | 'submitted'
+  | 'under_review'
+  | 'approved'
+  | 'rejected'
   | 'revise_and_resubmit';
 
 export type AnnotationType = 'comment' | 'concern' | 'suggestion';
@@ -98,27 +98,41 @@ export interface Database {
     Tables: {
       organizations: {
         Row: Organization;
-        Insert: Omit<Organization, 'id' | 'created_at'> & { id?: string; created_at?: string };
+        Insert: {
+          name: string;
+          slug: string;
+          id?: string;
+          settings?: Record<string, unknown>;
+          created_at?: string;
+        };
         Update: Partial<Omit<Organization, 'id'>>;
       };
       users: {
         Row: User;
-        Insert: Omit<User, 'created_at'> & { created_at?: string };
+        Insert: {
+          id: string;
+          organization_id: string;
+          email: string;
+          full_name: string;
+          role: UserRole;
+          avatar_url?: string | null;
+          created_at?: string;
+        };
         Update: Partial<Omit<User, 'id'>>;
       };
       proposals: {
         Row: Proposal;
-        Insert: Omit<Proposal, 'id' | 'created_at' | 'updated_at'> & { 
-          id?: string; 
-          created_at?: string; 
-          updated_at?: string 
+        Insert: Omit<Proposal, 'id' | 'created_at' | 'updated_at'> & {
+          id?: string;
+          created_at?: string;
+          updated_at?: string
         };
         Update: Partial<Omit<Proposal, 'id'>>;
       };
       annotations: {
         Row: Annotation;
-        Insert: Omit<Annotation, 'id' | 'created_at' | 'is_resolved'> & { 
-          id?: string; 
+        Insert: Omit<Annotation, 'id' | 'created_at' | 'is_resolved'> & {
+          id?: string;
           created_at?: string;
           is_resolved?: boolean;
         };
@@ -126,17 +140,17 @@ export interface Database {
       };
       annotation_replies: {
         Row: AnnotationReply;
-        Insert: Omit<AnnotationReply, 'id' | 'created_at'> & { 
-          id?: string; 
-          created_at?: string 
+        Insert: Omit<AnnotationReply, 'id' | 'created_at'> & {
+          id?: string;
+          created_at?: string
         };
         Update: Partial<Omit<AnnotationReply, 'id'>>;
       };
       reviews: {
         Row: Review;
-        Insert: Omit<Review, 'id' | 'created_at'> & { 
-          id?: string; 
-          created_at?: string 
+        Insert: Omit<Review, 'id' | 'created_at'> & {
+          id?: string;
+          created_at?: string
         };
         Update: Partial<Omit<Review, 'id'>>;
       };
