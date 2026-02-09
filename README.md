@@ -128,22 +128,14 @@ The AI layer learns how **your institution** reviews — and predicts how **othe
 - [ ] Multi-round review cycles with diff view
 - [ ] Audit trail and compliance logging
 
-## Contact
-
-EthicsGate is in early concept development by [Paperplane Software Solutions](https://paperplanesoftware.com).
-
-If you're a research institution interested in early access or a pilot program, we'd love to hear from you:
-
-📧 **contact@paperplanesoftware.com**
-
 ## License
 
-Proprietary — © 2026 Paperplane Software Solutions. All rights reserved.
+Proprietary — © 2026 Anthony Chen & Valarie Wu. All rights reserved.
 
 ---
 
 <p align="center">
-  <strong>Built with ❤️ by <a href="https://paperplanesoftware.com">Paperplane Software Solutions</a></strong>
+  <strong>Built with ❤️ by <a href="https://anthonymiles.xyz">Anthony Chen</a></strong>
   <br />
-  <em>Making ethics review faster, transparent, and intelligent.</em>
+  <em>Making ethics review faster, transparent, and smarter</em>
 </p>
