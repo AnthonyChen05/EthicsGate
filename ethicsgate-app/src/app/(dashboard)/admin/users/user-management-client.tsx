@@ -64,7 +64,7 @@ export function UserManagementClient({
 
         const result = inviteUserSchema.safeParse(inviteForm);
         if (!result.success) {
-            toast.error(result.error.errors[0].message);
+            toast.error(result.error.issues[0].message);
             setInviteLoading(false);
             return;
         }
