@@ -92,23 +92,44 @@ export interface ProposalWithRelations extends Proposal {
   reviews?: Review[];
 }
 
-// Supabase Database type helper
-export interface Database {
+// Supabase Database type - matches @supabase/supabase-js expected format
+export type Database = {
   public: {
     Tables: {
       organizations: {
-        Row: Organization;
-        Insert: {
+        Row: {
+          id: string;
           name: string;
           slug: string;
+          settings: Record<string, unknown>;
+          created_at: string;
+        };
+        Insert: {
           id?: string;
+          name: string;
+          slug: string;
           settings?: Record<string, unknown>;
           created_at?: string;
         };
-        Update: Partial<Omit<Organization, 'id'>>;
+        Update: {
+          id?: string;
+          name?: string;
+          slug?: string;
+          settings?: Record<string, unknown>;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       users: {
-        Row: User;
+        Row: {
+          id: string;
+          organization_id: string;
+          email: string;
+          full_name: string;
+          role: UserRole;
+          avatar_url: string | null;
+          created_at: string;
+        };
         Insert: {
           id: string;
           organization_id: string;
@@ -118,42 +139,155 @@ export interface Database {
           avatar_url?: string | null;
           created_at?: string;
         };
-        Update: Partial<Omit<User, 'id'>>;
+        Update: {
+          id?: string;
+          organization_id?: string;
+          email?: string;
+          full_name?: string;
+          role?: UserRole;
+          avatar_url?: string | null;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       proposals: {
-        Row: Proposal;
-        Insert: Omit<Proposal, 'id' | 'created_at' | 'updated_at'> & {
-          id?: string;
-          created_at?: string;
-          updated_at?: string
+        Row: {
+          id: string;
+          organization_id: string;
+          title: string;
+          content: Record<string, unknown>;
+          status: ProposalStatus;
+          submitted_by: string;
+          assigned_reviewers: string[];
+          attachments: string[];
+          submitted_at: string | null;
+          created_at: string;
+          updated_at: string;
         };
-        Update: Partial<Omit<Proposal, 'id'>>;
+        Insert: {
+          id?: string;
+          organization_id: string;
+          title: string;
+          content: Record<string, unknown>;
+          status?: ProposalStatus;
+          submitted_by: string;
+          assigned_reviewers?: string[];
+          attachments?: string[];
+          submitted_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          organization_id?: string;
+          title?: string;
+          content?: Record<string, unknown>;
+          status?: ProposalStatus;
+          submitted_by?: string;
+          assigned_reviewers?: string[];
+          attachments?: string[];
+          submitted_at?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
       };
       annotations: {
-        Row: Annotation;
-        Insert: Omit<Annotation, 'id' | 'created_at' | 'is_resolved'> & {
-          id?: string;
-          created_at?: string;
-          is_resolved?: boolean;
+        Row: {
+          id: string;
+          proposal_id: string;
+          reviewer_id: string;
+          highlight_from: number;
+          highlight_to: number;
+          comment_text: string;
+          annotation_type: AnnotationType;
+          is_resolved: boolean;
+          created_at: string;
         };
-        Update: Partial<Omit<Annotation, 'id'>>;
+        Insert: {
+          id?: string;
+          proposal_id: string;
+          reviewer_id: string;
+          highlight_from: number;
+          highlight_to: number;
+          comment_text: string;
+          annotation_type: AnnotationType;
+          is_resolved?: boolean;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          proposal_id?: string;
+          reviewer_id?: string;
+          highlight_from?: number;
+          highlight_to?: number;
+          comment_text?: string;
+          annotation_type?: AnnotationType;
+          is_resolved?: boolean;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       annotation_replies: {
-        Row: AnnotationReply;
-        Insert: Omit<AnnotationReply, 'id' | 'created_at'> & {
-          id?: string;
-          created_at?: string
+        Row: {
+          id: string;
+          annotation_id: string;
+          user_id: string;
+          reply_text: string;
+          created_at: string;
         };
-        Update: Partial<Omit<AnnotationReply, 'id'>>;
+        Insert: {
+          id?: string;
+          annotation_id: string;
+          user_id: string;
+          reply_text: string;
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          annotation_id?: string;
+          user_id?: string;
+          reply_text?: string;
+          created_at?: string;
+        };
+        Relationships: [];
       };
       reviews: {
-        Row: Review;
-        Insert: Omit<Review, 'id' | 'created_at'> & {
-          id?: string;
-          created_at?: string
+        Row: {
+          id: string;
+          proposal_id: string;
+          reviewer_id: string;
+          decision: ReviewDecision;
+          reason: string;
+          linked_annotation_ids: string[];
+          created_at: string;
         };
-        Update: Partial<Omit<Review, 'id'>>;
+        Insert: {
+          id?: string;
+          proposal_id: string;
+          reviewer_id: string;
+          decision: ReviewDecision;
+          reason: string;
+          linked_annotation_ids?: string[];
+          created_at?: string;
+        };
+        Update: {
+          id?: string;
+          proposal_id?: string;
+          reviewer_id?: string;
+          decision?: ReviewDecision;
+          reason?: string;
+          linked_annotation_ids?: string[];
+          created_at?: string;
+        };
+        Relationships: [];
       };
+    };
+    Views: {
+      [_ in never]: never;
+    };
+    Functions: {
+      [_ in never]: never;
     };
     Enums: {
       user_role: UserRole;
@@ -161,5 +295,8 @@ export interface Database {
       annotation_type: AnnotationType;
       review_decision: ReviewDecision;
     };
+    CompositeTypes: {
+      [_ in never]: never;
+    };
   };
-}
+};
