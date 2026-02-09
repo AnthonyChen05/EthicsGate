@@ -282,6 +282,45 @@ export type Database = {
         };
         Relationships: [];
       };
+      contact_requests: {
+        Row: {
+          id: string;
+          name: string;
+          email: string;
+          institution: string;
+          role: string | null;
+          message: string | null;
+          status: string;
+          notes: string | null;
+          created_at: string;
+          updated_at: string;
+        };
+        Insert: {
+          id?: string;
+          name: string;
+          email: string;
+          institution: string;
+          role?: string | null;
+          message?: string | null;
+          status?: string;
+          notes?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Update: {
+          id?: string;
+          name?: string;
+          email?: string;
+          institution?: string;
+          role?: string | null;
+          message?: string | null;
+          status?: string;
+          notes?: string | null;
+          created_at?: string;
+          updated_at?: string;
+        };
+        Relationships: [];
+      };
     };
     Views: {
       [_ in never]: never;

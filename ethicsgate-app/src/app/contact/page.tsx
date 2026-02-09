@@ -2,11 +2,12 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import { createClient } from '@/lib/supabase/client';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import {
     Select,
     SelectContent,
@@ -32,18 +33,32 @@ export default function ContactPage() {
         e.preventDefault();
         setLoading(true);
 
-        // Simulate form submission - in production, send to your backend/email service
-        await new Promise(resolve => setTimeout(resolve, 1000));
+        try {
+            const supabase = createClient();
 
-        // For now, open mailto with pre-filled data
-        const subject = encodeURIComponent(`EthicsGate Demo Request from ${formData.institution}`);
-        const body = encodeURIComponent(
-            `Name: ${formData.name}\nEmail: ${formData.email}\nInstitution: ${formData.institution}\nRole: ${formData.role}\n\nMessage:\n${formData.message}`
-        );
-        window.location.href = `mailto:gamertonystuck@gmail.com?subject=${subject}&body=${body}`;
+            const { error } = await supabase
+                .from('contact_requests')
+                .insert({
+                    name: formData.name,
+                    email: formData.email,
+                    institution: formData.institution,
+                    role: formData.role || null,
+                    message: formData.message || null,
+                });
 
-        setSubmitted(true);
-        setLoading(false);
+            if (error) {
+                console.error('Error submitting contact request:', error);
+                toast.error('Failed to submit. Please try again.');
+                setLoading(false);
+                return;
+            }
+
+            setSubmitted(true);
+        } catch (err) {
+            console.error('Error:', err);
+            toast.error('Something went wrong. Please try again.');
+            setLoading(false);
+        }
     };
 
     if (submitted) {
@@ -64,8 +79,7 @@ export default function ContactPage() {
                             </div>
                             <h2 className="text-xl font-semibold text-[#3D3835] mb-2">Thank you!</h2>
                             <p className="text-[#6B6560] mb-6">
-                                Your email client should open with your request. If it doesn&apos;t,
-                                please email us directly at gamertonystuck@gmail.com
+                                We&apos;ve received your request and will be in touch within 24 hours.
                             </p>
                             <Button asChild variant="outline" className="border-[#E8E3DB]">
                                 <Link href="/">
@@ -181,7 +195,7 @@ export default function ContactPage() {
                                     className="w-full bg-[#C77B58] hover:bg-[#B06A48] text-white"
                                 >
                                     {loading ? (
-                                        'Sending...'
+                                        'Submitting...'
                                     ) : (
                                         <>
                                             <Send className="mr-2 h-4 w-4" />
