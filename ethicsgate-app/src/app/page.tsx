@@ -70,7 +70,7 @@ export default function LandingPage() {
                 asChild
                 className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm"
               >
-                <Link href="/contact">Get Started</Link>
+                <Link href="#contact-sales">Get Started</Link>
               </Button>
             </div>
           </div>
@@ -101,8 +101,8 @@ export default function LandingPage() {
               size="lg"
               className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm px-6"
             >
-              <Link href="/contact">
-                Request a Demo
+              <Link href="#contact-sales">
+                Get Started
                 <ArrowRight className="ml-2 h-4 w-4" />
               </Link>
             </Button>
@@ -150,7 +150,7 @@ export default function LandingPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="contact-sales" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-2xl mx-auto text-center bg-white border border-[#E8E3DB] rounded-2xl p-8 sm:p-10">
           <GraduationCap className="h-10 w-10 text-[#C77B58] mx-auto mb-4" />
           <h2 className="text-2xl font-semibold text-[#3D3835] mb-3">
