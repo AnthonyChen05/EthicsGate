@@ -1,6 +1,6 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/status-concept-orange?style=for-the-badge" alt="Status: Concept" />
-  <img src="https://img.shields.io/badge/license-proprietary-red?style=for-the-badge" alt="License: Proprietary" />
+  <img src="https://img.shields.io/badge/status-alpha-orange?style=for-the-badge" alt="Status: Alpha" />
+  <img src="https://img.shields.io/badge/license-AGPL--3.0-blue?style=for-the-badge" alt="License: AGPL-3.0" />
   <img src="https://img.shields.io/badge/version-0.1.0--alpha-blue?style=for-the-badge" alt="Version: 0.1.0-alpha" />
 </p>
 
