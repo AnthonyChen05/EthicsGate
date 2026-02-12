@@ -40,7 +40,7 @@ export default async function DashboardLayout({
     }
 
     return (
-        <div className="min-h-screen bg-[#FAF8F5]">
+        <div className="min-h-screen bg-background">
             <Sidebar userRole={user.role} />
             <Header user={user} organization={organization} />
             <main className="pl-56 pt-14">
@@ -50,13 +50,6 @@ export default async function DashboardLayout({
             </main>
             <Toaster
                 position="bottom-right"
-                toastOptions={{
-                    style: {
-                        background: '#FFFFFF',
-                        border: '1px solid #E8E3DB',
-                        color: '#3D3835',
-                    },
-                }}
             />
         </div>
     );

@@ -1,0 +1,268 @@
+﻿
+> ethicsgate-app@0.1.0 lint
+> eslint
+
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\app\(auth)\signup\page.tsx
+  14:46  warning  'BookOpen' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\app\(dashboard)\admin\users\user-management-client.tsx
+  11:29  warning  'CardHeader' is defined but never used         @typescript-eslint/no-unused-vars
+  11:41  warning  'CardTitle' is defined but never used          @typescript-eslint/no-unused-vars
+  48:5   warning  'organizationId' is defined but never used     @typescript-eslint/no-unused-vars
+  74:27  warning  'authData' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\app\(dashboard)\dashboard\page.tsx
+  180:55  error  Unexpected any. Specify a different type  @typescript-eslint/no-explicit-any
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\app\(dashboard)\proposals\[id]\page.tsx
+  10:10  warning  'Separator' is defined but never used  @typescript-eslint/no-unused-vars
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\app\(dashboard)\proposals\page.tsx
+  6:29  warning  'CardHeader' is defined but never used  @typescript-eslint/no-unused-vars
+  6:41  warning  'CardTitle' is defined but never used   @typescript-eslint/no-unused-vars
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx
+   89:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:89:22
+  87 |             {editable && (
+  88 |                 <div className="flex items-center gap-1 p-2 border-b border-border bg-muted/30">
+> 89 |                     <ToolbarButton
+     |                      ^^^^^^^^^^^^^ This component is created during render
+  90 |                         onClick={() => editor.chain().focus().toggleBold().run()}
+  91 |                         isActive={editor.isActive('bold')}
+  92 |                     >
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">  react-hooks/static-components
+   95:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:95:22
+  93 |                         <Bold className="h-4 w-4" />
+  94 |                     </ToolbarButton>
+> 95 |                     <ToolbarButton
+     |                      ^^^^^^^^^^^^^ This component is created during render
+  96 |                         onClick={() => editor.chain().focus().toggleItalic().run()}
+  97 |                         isActive={editor.isActive('italic')}
+  98 |                     >
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">                                react-hooks/static-components
+  104:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:104:22
+  102 |                     <div className="w-px h-5 bg-border mx-1" />
+  103 |
+> 104 |                     <ToolbarButton
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  105 |                         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
+  106 |                         isActive={editor.isActive('heading', { level: 2 })}
+  107 |                     >
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">                      react-hooks/static-components
+  110:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:110:22
+  108 |                         <Heading2 className="h-4 w-4" />
+  109 |                     </ToolbarButton>
+> 110 |                     <ToolbarButton
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  111 |                         onClick={() => editor.chain().focus().toggleBulletList().run()}
+  112 |                         isActive={editor.isActive('bulletList')}
+  113 |                     >
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">            react-hooks/static-components
+  116:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:116:22
+  114 |                         <List className="h-4 w-4" />
+  115 |                     </ToolbarButton>
+> 116 |                     <ToolbarButton
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  117 |                         onClick={() => editor.chain().focus().toggleOrderedList().run()}
+  118 |                         isActive={editor.isActive('orderedList')}
+  119 |                     >
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">              react-hooks/static-components
+  122:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:122:22
+  120 |                         <ListOrdered className="h-4 w-4" />
+  121 |                     </ToolbarButton>
+> 122 |                     <ToolbarButton
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  123 |                         onClick={() => editor.chain().focus().toggleBlockquote().run()}
+  124 |                         isActive={editor.isActive('blockquote')}
+  125 |                     >
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">         react-hooks/static-components
+  131:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:131:22
+  129 |                     <div className="flex-1" />
+  130 |
+> 131 |                     <ToolbarButton
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  132 |                         onClick={() => editor.chain().focus().undo().run()}
+  133 |                     >
+  134 |                         <Undo className="h-4 w-4" />
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">                                                                                   react-hooks/static-components
+  136:22  error  Error: Cannot create components during render
+
+Components created during render will reset their state each time they are created. Declare components outside of render.
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:136:22
+  134 |                         <Undo className="h-4 w-4" />
+  135 |                     </ToolbarButton>
+> 136 |                     <ToolbarButton
+      |                      ^^^^^^^^^^^^^ This component is created during render
+  137 |                         onClick={() => editor.chain().focus().redo().run()}
+  138 |                     >
+  139 |                         <Redo className="h-4 w-4" />
+
+C:\Users\Anthony\Desktop\EthicsGate\ethicsgate-app\src\components\editor\proposal-editor.tsx:60:27
+  58 |     }
+  59 |
+> 60 |     const ToolbarButton = ({
+     |                           ^^
+> 61 |         onClick,
+     | ^^^^^^^^^^^^^^^^
+> 62 |         isActive,
+     ΓÇª
+     | ^^^^^^^^^^^^^^^^
+> 82 |         </Button>
+     | ^^^^^^^^^^^^^^^^
+> 83 |     );
+     | ^^^^^^ The component is created during render here
+  84 |
+  85 |     return (
+  86 |         <div className="border border-border rounded-lg bg-card overflow-hidden">                                        react-hooks/static-components
+
+Γ£û 17 problems (9 errors, 8 warnings)
+

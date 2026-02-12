@@ -23,6 +23,31 @@ interface ProposalEditorProps {
     placeholder?: string;
 }
 
+const ToolbarButton = ({
+    onClick,
+    isActive,
+    children
+}: {
+    onClick: () => void;
+    isActive?: boolean;
+    children: React.ReactNode;
+}) => (
+    <Button
+        type="button"
+        variant="ghost"
+        size="sm"
+        onClick={onClick}
+        className={cn(
+            'h-8 w-8 p-0',
+            isActive
+                ? 'bg-muted text-primary'
+                : 'text-muted-foreground hover:text-foreground hover:bg-muted'
+        )}
+    >
+        {children}
+    </Button>
+);
+
 export function ProposalEditor({
     content,
     onChange,
@@ -46,46 +71,21 @@ export function ProposalEditor({
         },
         editorProps: {
             attributes: {
-                class: 'prose prose-stone max-w-none min-h-[300px] p-4 focus:outline-none text-[#3D3835]',
+                class: 'prose prose-stone max-w-none min-h-[300px] p-4 focus:outline-none text-foreground',
             },
         },
     });
 
     if (!editor) {
         return (
-            <div className="border border-[#E8E3DB] rounded-lg bg-white min-h-[350px] animate-pulse" />
+            <div className="border border-border rounded-lg bg-background min-h-[350px] animate-pulse" />
         );
     }
 
-    const ToolbarButton = ({
-        onClick,
-        isActive,
-        children
-    }: {
-        onClick: () => void;
-        isActive?: boolean;
-        children: React.ReactNode;
-    }) => (
-        <Button
-            type="button"
-            variant="ghost"
-            size="sm"
-            onClick={onClick}
-            className={cn(
-                'h-8 w-8 p-0',
-                isActive
-                    ? 'bg-[#FDF8F4] text-[#C77B58]'
-                    : 'text-[#7A756F] hover:text-[#3D3835] hover:bg-[#F5F0E8]'
-            )}
-        >
-            {children}
-        </Button>
-    );
-
     return (
-        <div className="border border-[#E8E3DB] rounded-lg bg-white overflow-hidden">
+        <div className="border border-border rounded-lg bg-card overflow-hidden">
             {editable && (
-                <div className="flex items-center gap-1 p-2 border-b border-[#E8E3DB] bg-[#FDFCFB]">
+                <div className="flex items-center gap-1 p-2 border-b border-border bg-muted/30">
                     <ToolbarButton
                         onClick={() => editor.chain().focus().toggleBold().run()}
                         isActive={editor.isActive('bold')}
@@ -99,7 +99,7 @@ export function ProposalEditor({
                         <Italic className="h-4 w-4" />
                     </ToolbarButton>
 
-                    <div className="w-px h-5 bg-[#E8E3DB] mx-1" />
+                    <div className="w-px h-5 bg-border mx-1" />
 
                     <ToolbarButton
                         onClick={() => editor.chain().focus().toggleHeading({ level: 2 }).run()}
@@ -143,7 +143,7 @@ export function ProposalEditor({
             <EditorContent editor={editor} />
             <style jsx global>{`
         .ProseMirror p.is-editor-empty:first-child::before {
-          color: #A8A39D;
+          color: var(--muted-foreground);
           content: attr(data-placeholder);
           float: left;
           height: 0;
@@ -154,7 +154,7 @@ export function ProposalEditor({
           font-weight: 600;
           margin-top: 1.5rem;
           margin-bottom: 0.5rem;
-          color: #3D3835;
+          color: var(--foreground);
         }
         .ProseMirror p {
           margin-bottom: 0.75rem;
@@ -168,9 +168,9 @@ export function ProposalEditor({
           margin-bottom: 0.25rem;
         }
         .ProseMirror blockquote {
-          border-left: 3px solid #E8E3DB;
+          border-left: 3px solid var(--border);
           padding-left: 1rem;
-          color: #6B6560;
+          color: var(--muted-foreground);
           font-style: italic;
           margin: 1rem 0;
         }

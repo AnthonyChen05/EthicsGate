@@ -16,15 +16,15 @@ export function ProposalCard({ proposal, author, showAuthor = false }: ProposalC
             href={`/proposals/${proposal.id}`}
             className="block"
         >
-            <div className="flex items-center justify-between p-3 rounded-lg border border-[#E8E3DB] hover:border-[#D4C8BC] hover:bg-[#FDFCFB] transition-colors group">
+            <div className="flex items-center justify-between p-3 rounded-lg border border-border hover:bg-muted/50 transition-colors group">
                 <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2">
-                        <h3 className="font-medium text-[#3D3835] truncate">
+                        <h3 className="font-medium text-foreground truncate">
                             {proposal.title}
                         </h3>
                         <StatusBadge status={proposal.status} />
                     </div>
-                    <div className="flex items-center gap-2 mt-1 text-sm text-[#7A756F]">
+                    <div className="flex items-center gap-2 mt-1 text-sm text-muted-foreground">
                         {showAuthor && author && (
                             <>
                                 <span>{author.full_name}</span>
@@ -36,7 +36,7 @@ export function ProposalCard({ proposal, author, showAuthor = false }: ProposalC
                         </span>
                     </div>
                 </div>
-                <ChevronRight className="h-4 w-4 text-[#A8A39D] group-hover:text-[#6B6560] transition-colors flex-shrink-0" />
+                <ChevronRight className="h-4 w-4 text-muted-foreground group-hover:text-foreground transition-colors flex-shrink-0" />
             </div>
         </Link>
     );

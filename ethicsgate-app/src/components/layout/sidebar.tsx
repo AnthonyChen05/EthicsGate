@@ -52,12 +52,12 @@ export function Sidebar({ userRole }: SidebarProps) {
     );
 
     return (
-        <aside className="fixed left-0 top-0 h-full w-56 bg-white border-r border-[#E8E3DB] z-40">
+        <aside className="fixed left-0 top-0 h-full w-56 bg-background border-r border-border z-40">
             {/* Logo */}
-            <div className="h-14 flex items-center px-4 border-b border-[#E8E3DB]">
+            <div className="h-14 flex items-center px-4 border-b border-border">
                 <Link href="/dashboard" className="flex items-center gap-2">
-                    <GraduationCap className="h-6 w-6 text-[#C77B58]" />
-                    <span className="font-semibold text-[#3D3835]">EthicsGate</span>
+                    <GraduationCap className="h-6 w-6 text-primary" />
+                    <span className="font-semibold text-foreground">EthicsGate</span>
                 </Link>
             </div>
 
@@ -73,8 +73,8 @@ export function Sidebar({ userRole }: SidebarProps) {
                             className={cn(
                                 'flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium transition-colors',
                                 isActive
-                                    ? 'bg-[#FDF8F4] text-[#C77B58]'
-                                    : 'text-[#6B6560] hover:bg-[#F5F0E8] hover:text-[#3D3835]'
+                                    ? 'bg-primary text-primary-foreground'
+                                    : 'text-muted-foreground hover:bg-muted hover:text-foreground'
                             )}
                         >
                             <item.icon className="h-4 w-4" />
@@ -85,13 +85,13 @@ export function Sidebar({ userRole }: SidebarProps) {
             </nav>
 
             {/* Help section */}
-            <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-[#E8E3DB]">
-                <div className="bg-[#FDF8F4] rounded-lg p-3">
-                    <div className="flex items-center gap-2 text-[#C77B58] mb-1">
+            <div className="absolute bottom-0 left-0 right-0 p-3 border-t border-border">
+                <div className="bg-muted/50 rounded-lg p-3">
+                    <div className="flex items-center gap-2 text-foreground mb-1">
                         <BookOpen className="h-4 w-4" />
                         <span className="text-sm font-medium">Need help?</span>
                     </div>
-                    <p className="text-xs text-[#7A756F]">
+                    <p className="text-xs text-muted-foreground">
                         Check our guides for tips on ethics submissions.
                     </p>
                 </div>

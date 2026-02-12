@@ -47,14 +47,14 @@ export default function LandingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAF8F5]">
+    <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-[#FAF8F5]/90 backdrop-blur-sm border-b border-[#E8E3DB]">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-background/90 backdrop-blur-sm border-b border-border">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <Link href="/" className="flex items-center gap-2">
-              <GraduationCap className="h-7 w-7 text-[#C77B58]" />
-              <span className="text-xl font-semibold text-[#3D3835]">
+              <GraduationCap className="h-7 w-7 text-primary" />
+              <span className="text-xl font-semibold text-foreground">
                 EthicsGate
               </span>
             </Link>
@@ -62,13 +62,13 @@ export default function LandingPage() {
               <Button
                 asChild
                 variant="ghost"
-                className="text-[#6B6560] hover:text-[#3D3835] hover:bg-[#F0EBE3]"
+                className="text-muted-foreground hover:text-foreground hover:bg-muted"
               >
                 <Link href="/login">Sign In</Link>
               </Button>
               <Button
                 asChild
-                className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm"
               >
                 <Link href="#contact-sales">Get Started</Link>
               </Button>
@@ -80,18 +80,18 @@ export default function LandingPage() {
       {/* Hero */}
       <section className="pt-28 pb-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-3xl mx-auto text-center">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#F0EBE3] text-[#7A756F] text-sm mb-6">
-            <Sparkles className="h-4 w-4 text-[#C77B58]" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-muted text-muted-foreground text-sm mb-6">
+            <Sparkles className="h-4 w-4 text-primary" />
             Trusted by research institutions
           </div>
-          <h1 className="text-4xl sm:text-5xl font-semibold text-[#3D3835] mb-5 leading-tight">
+          <h1 className="text-4xl sm:text-5xl font-semibold text-foreground mb-5 leading-tight">
             Ethics review that feels
             <br />
-            <span className="text-[#C77B58]">
+            <span className="text-primary">
               helpful, not hurdle
             </span>
           </h1>
-          <p className="text-lg text-[#6B6560] mb-8 max-w-xl mx-auto leading-relaxed">
+          <p className="text-lg text-muted-foreground mb-8 max-w-xl mx-auto leading-relaxed">
             EthicsGate guides your research proposals through institutional review
             with clarity, collaboration, and care. No more confusing forms or opaque processes.
           </p>
@@ -99,7 +99,7 @@ export default function LandingPage() {
             <Button
               asChild
               size="lg"
-              className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm px-6"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm px-6"
             >
               <Link href="#contact-sales">
                 Get Started
@@ -110,7 +110,7 @@ export default function LandingPage() {
               asChild
               variant="outline"
               size="lg"
-              className="border-[#E8E3DB] text-[#6B6560] hover:bg-[#F0EBE3] hover:text-[#3D3835] px-6"
+              className="border-border text-muted-foreground hover:bg-muted hover:text-foreground px-6"
             >
               <Link href="#features">See How It Works</Link>
             </Button>
@@ -122,10 +122,10 @@ export default function LandingPage() {
       <section id="features" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-5xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-[#3D3835] mb-3">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-foreground mb-3">
               Research ethics, simplified
             </h2>
-            <p className="text-[#6B6560] max-w-xl mx-auto">
+            <p className="text-muted-foreground max-w-xl mx-auto">
               We&apos;ve reimagined the IRB process to support researchers rather than slow them down.
             </p>
           </div>
@@ -134,15 +134,15 @@ export default function LandingPage() {
             {features.map((feature) => (
               <div
                 key={feature.title}
-                className="bg-white border border-[#E8E3DB] rounded-xl p-5 hover:shadow-md transition-shadow"
+                className="bg-card border border-border rounded-xl p-5 hover:shadow-md transition-shadow"
               >
-                <div className="w-10 h-10 rounded-lg bg-[#FDF8F4] flex items-center justify-center mb-4">
-                  <feature.icon className="h-5 w-5 text-[#C77B58]" />
+                <div className="w-10 h-10 rounded-lg bg-muted flex items-center justify-center mb-4">
+                  <feature.icon className="h-5 w-5 text-primary" />
                 </div>
-                <h3 className="text-lg font-medium text-[#3D3835] mb-2">
+                <h3 className="text-lg font-medium text-foreground mb-2">
                   {feature.title}
                 </h3>
-                <p className="text-[#7A756F] text-sm leading-relaxed">{feature.description}</p>
+                <p className="text-muted-foreground text-sm leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -151,18 +151,18 @@ export default function LandingPage() {
 
       {/* CTA */}
       <section id="contact-sales" className="py-16 px-4 sm:px-6 lg:px-8">
-        <div className="max-w-2xl mx-auto text-center bg-white border border-[#E8E3DB] rounded-2xl p-8 sm:p-10">
-          <GraduationCap className="h-10 w-10 text-[#C77B58] mx-auto mb-4" />
-          <h2 className="text-2xl font-semibold text-[#3D3835] mb-3">
+        <div className="max-w-2xl mx-auto text-center bg-card border border-border rounded-2xl p-8 sm:p-10">
+          <GraduationCap className="h-10 w-10 text-primary mx-auto mb-4" />
+          <h2 className="text-2xl font-semibold text-foreground mb-3">
             Ready to simplify your ethics review?
           </h2>
-          <p className="text-[#6B6560] mb-6">
+          <p className="text-muted-foreground mb-6">
             Join institutions that have made research ethics approachable and efficient.
           </p>
           <Button
             asChild
             size="lg"
-            className="bg-[#C77B58] hover:bg-[#B06A48] text-white shadow-sm px-6"
+            className="bg-primary hover:bg-primary/90 text-primary-foreground shadow-sm px-6"
           >
             <Link href="/contact">
               Contact Sales
@@ -173,13 +173,13 @@ export default function LandingPage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-[#E8E3DB]">
+      <footer className="py-8 px-4 sm:px-6 lg:px-8 border-t border-border">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-2">
-            <GraduationCap className="h-5 w-5 text-[#C77B58]" />
-            <span className="font-medium text-[#3D3835]">EthicsGate</span>
+            <GraduationCap className="h-5 w-5 text-primary" />
+            <span className="font-medium text-foreground">EthicsGate</span>
           </div>
-          <p className="text-[#7A756F] text-sm">
+          <p className="text-muted-foreground text-sm">
             © 2026 Paperplane Software Solutions
           </p>
         </div>

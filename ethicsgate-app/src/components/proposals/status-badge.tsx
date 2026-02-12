@@ -10,27 +10,27 @@ interface StatusBadgeProps {
 const statusConfig: Record<ProposalStatus, { label: string; className: string }> = {
     draft: {
         label: 'Draft',
-        className: 'bg-[#F0EBE3] text-[#6B6560] border-[#E8E3DB]'
+        className: 'bg-muted text-muted-foreground border-border'
     },
     submitted: {
         label: 'Submitted',
-        className: 'bg-[#FEF3E0] text-[#B08A50] border-[#F5E0C0]'
+        className: 'bg-blue-50 text-blue-700 border-blue-200 dark:bg-blue-900/20 dark:text-blue-300 dark:border-blue-800'
     },
     under_review: {
         label: 'In Review',
-        className: 'bg-[#E8F4F8] text-[#4A8A90] border-[#C8E4E8]'
+        className: 'bg-purple-50 text-purple-700 border-purple-200 dark:bg-purple-900/20 dark:text-purple-300 dark:border-purple-800'
     },
     approved: {
         label: 'Approved',
-        className: 'bg-[#E8F5E9] text-[#5A8A5E] border-[#C8E8CA]'
+        className: 'bg-green-50 text-green-700 border-green-200 dark:bg-green-900/20 dark:text-green-300 dark:border-green-800'
     },
     rejected: {
         label: 'Not Approved',
-        className: 'bg-[#FDECEB] text-[#C75450] border-[#F5D0CE]'
+        className: 'bg-red-50 text-red-700 border-red-200 dark:bg-red-900/20 dark:text-red-300 dark:border-red-800'
     },
     revise_and_resubmit: {
         label: 'Revisions Needed',
-        className: 'bg-[#FFF4E8] text-[#C77B58] border-[#F5E0D0]'
+        className: 'bg-orange-50 text-orange-700 border-orange-200 dark:bg-orange-900/20 dark:text-orange-300 dark:border-orange-800'
     },
 };
 

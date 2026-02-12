@@ -70,10 +70,10 @@ export default async function DashboardPage() {
         <div className="space-y-6">
             {/* Welcome */}
             <div>
-                <h1 className="text-2xl font-semibold text-[#3D3835]">
+                <h1 className="text-2xl font-semibold text-foreground">
                     Welcome, {user.full_name.split(' ')[0]}
                 </h1>
-                <p className="text-[#7A756F] mt-1">
+                <p className="text-muted-foreground mt-1">
                     {roleGreetings[user.role]}
                 </p>
             </div>
@@ -81,54 +81,54 @@ export default async function DashboardPage() {
             {/* Stats for admin/reviewer */}
             {stats && (
                 <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <Card className="bg-white border-[#E8E3DB]">
+                    <Card className="bg-card border-border">
                         <CardContent className="p-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-[#F5F0E8] flex items-center justify-center">
-                                    <FileText className="h-5 w-5 text-[#6B6560]" />
+                                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                                    <FileText className="h-5 w-5 text-muted-foreground" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-semibold text-[#3D3835]">{stats.total}</p>
-                                    <p className="text-sm text-[#7A756F]">Total</p>
+                                    <p className="text-2xl font-semibold text-foreground">{stats.total}</p>
+                                    <p className="text-sm text-muted-foreground">Total</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white border-[#E8E3DB]">
+                    <Card className="bg-card border-border">
                         <CardContent className="p-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-[#FEF3E0] flex items-center justify-center">
-                                    <Clock className="h-5 w-5 text-[#D4A574]" />
+                                <div className="w-10 h-10 rounded-lg bg-orange-500/10 flex items-center justify-center">
+                                    <Clock className="h-5 w-5 text-orange-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-semibold text-[#3D3835]">{stats.pending}</p>
-                                    <p className="text-sm text-[#7A756F]">Pending</p>
+                                    <p className="text-2xl font-semibold text-foreground">{stats.pending}</p>
+                                    <p className="text-sm text-muted-foreground">Pending</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white border-[#E8E3DB]">
+                    <Card className="bg-card border-border">
                         <CardContent className="p-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-[#E8F4F8] flex items-center justify-center">
-                                    <AlertCircle className="h-5 w-5 text-[#5B9AA0]" />
+                                <div className="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center">
+                                    <AlertCircle className="h-5 w-5 text-blue-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-semibold text-[#3D3835]">{stats.underReview}</p>
-                                    <p className="text-sm text-[#7A756F]">In Review</p>
+                                    <p className="text-2xl font-semibold text-foreground">{stats.underReview}</p>
+                                    <p className="text-sm text-muted-foreground">In Review</p>
                                 </div>
                             </div>
                         </CardContent>
                     </Card>
-                    <Card className="bg-white border-[#E8E3DB]">
+                    <Card className="bg-card border-border">
                         <CardContent className="p-4">
                             <div className="flex items-center gap-3">
-                                <div className="w-10 h-10 rounded-lg bg-[#E8F5E9] flex items-center justify-center">
-                                    <CheckCircle className="h-5 w-5 text-[#7A9E7E]" />
+                                <div className="w-10 h-10 rounded-lg bg-green-500/10 flex items-center justify-center">
+                                    <CheckCircle className="h-5 w-5 text-green-600" />
                                 </div>
                                 <div>
-                                    <p className="text-2xl font-semibold text-[#3D3835]">{stats.approved}</p>
-                                    <p className="text-sm text-[#7A756F]">Approved</p>
+                                    <p className="text-2xl font-semibold text-foreground">{stats.approved}</p>
+                                    <p className="text-sm text-muted-foreground">Approved</p>
                                 </div>
                             </div>
                         </CardContent>
@@ -138,15 +138,15 @@ export default async function DashboardPage() {
 
             {/* Quick action for researchers */}
             {user.role === 'researcher' && (
-                <Card className="bg-[#FDF8F4] border-[#E8E3DB]">
+                <Card className="bg-muted/50 border-border">
                     <CardContent className="p-5 flex items-center justify-between">
                         <div>
-                            <h3 className="font-medium text-[#3D3835]">Ready to submit a new proposal?</h3>
-                            <p className="text-sm text-[#7A756F] mt-1">
+                            <h3 className="font-medium text-foreground">Ready to submit a new proposal?</h3>
+                            <p className="text-sm text-muted-foreground mt-1">
                                 Start your ethics review submission with our guided form.
                             </p>
                         </div>
-                        <Button asChild className="bg-[#C77B58] hover:bg-[#B06A48] text-white">
+                        <Button asChild className="bg-primary hover:bg-primary/90 text-primary-foreground">
                             <Link href="/proposals/new">
                                 <Plus className="mr-2 h-4 w-4" />
                                 New Proposal
@@ -157,16 +157,16 @@ export default async function DashboardPage() {
             )}
 
             {/* Recent proposals */}
-            <Card className="bg-white border-[#E8E3DB]">
+            <Card className="bg-card border-border">
                 <CardHeader className="flex flex-row items-center justify-between pb-2">
-                    <CardTitle className="text-lg font-medium text-[#3D3835]">
+                    <CardTitle className="text-lg font-medium text-foreground">
                         Recent Proposals
                     </CardTitle>
                     <Button
                         asChild
                         variant="ghost"
                         size="sm"
-                        className="text-[#C77B58] hover:text-[#B06A48] hover:bg-[#FDF8F4]"
+                        className="text-primary hover:text-primary/90 hover:bg-muted"
                     >
                         <Link href="/proposals">
                             View all
@@ -177,6 +177,7 @@ export default async function DashboardPage() {
                 <CardContent>
                     {proposals && proposals.length > 0 ? (
                         <div className="space-y-3">
+                            {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
                             {proposals.map((proposal: any) => (
                                 <ProposalCard
                                     key={proposal.id}
@@ -188,10 +189,10 @@ export default async function DashboardPage() {
                         </div>
                     ) : (
                         <div className="text-center py-8">
-                            <FileText className="h-10 w-10 text-[#E8E3DB] mx-auto mb-3" />
-                            <p className="text-[#7A756F]">No proposals yet</p>
+                            <FileText className="h-10 w-10 text-muted-foreground/50 mx-auto mb-3" />
+                            <p className="text-muted-foreground">No proposals yet</p>
                             {user.role === 'researcher' && (
-                                <Button asChild className="mt-3 bg-[#C77B58] hover:bg-[#B06A48] text-white">
+                                <Button asChild className="mt-3 bg-primary hover:bg-primary/90 text-primary-foreground">
                                     <Link href="/proposals/new">
                                         Create your first proposal
                                     </Link>

@@ -96,13 +96,13 @@ export default function NewProposalPage() {
                         variant="ghost"
                         size="icon"
                         asChild
-                        className="text-[#7A756F] hover:text-[#3D3835] hover:bg-[#F5F0E8]"
+                        className="text-muted-foreground hover:text-foreground hover:bg-muted"
                     >
                         <Link href="/proposals">
                             <ArrowLeft className="h-5 w-5" />
                         </Link>
                     </Button>
-                    <h1 className="text-xl font-semibold text-[#3D3835]">New Proposal</h1>
+                    <h1 className="text-xl font-semibold text-foreground">New Proposal</h1>
                 </div>
 
                 <div className="flex items-center gap-2">
@@ -110,7 +110,7 @@ export default function NewProposalPage() {
                         variant="outline"
                         onClick={() => handleSave(false)}
                         disabled={saving || submitting}
-                        className="border-[#E8E3DB] text-[#6B6560] hover:bg-[#F5F0E8] hover:text-[#3D3835]"
+                        className="border-border text-muted-foreground hover:bg-muted hover:text-foreground"
                     >
                         <Save className="mr-2 h-4 w-4" />
                         {saving ? 'Saving...' : 'Save Draft'}
@@ -118,7 +118,7 @@ export default function NewProposalPage() {
                     <Button
                         onClick={() => handleSave(true)}
                         disabled={saving || submitting}
-                        className="bg-[#C77B58] hover:bg-[#B06A48] text-white"
+                        className="bg-primary hover:bg-primary/90 text-primary-foreground"
                     >
                         <Send className="mr-2 h-4 w-4" />
                         {submitting ? 'Submitting...' : 'Submit for Review'}
@@ -127,11 +127,11 @@ export default function NewProposalPage() {
             </div>
 
             {/* Tips */}
-            <div className="bg-[#FDF8F4] border border-[#F0EBE3] rounded-lg p-4 mb-6">
+            <div className="bg-muted/50 border border-border rounded-lg p-4 mb-6">
                 <div className="flex gap-3">
-                    <Lightbulb className="h-5 w-5 text-[#C77B58] flex-shrink-0 mt-0.5" />
-                    <div className="text-sm text-[#6B6560]">
-                        <strong className="text-[#4A4540]">Tips for a strong proposal:</strong>
+                    <Lightbulb className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
+                    <div className="text-sm text-muted-foreground">
+                        <strong className="text-foreground">Tips for a strong proposal:</strong>
                         <span className="block mt-1">
                             Include clear research objectives, methodology details, participant information,
                             and how you&apos;ll handle data ethically.
@@ -141,16 +141,16 @@ export default function NewProposalPage() {
             </div>
 
             {/* Form */}
-            <Card className="bg-white border-[#E8E3DB]">
+            <Card className="bg-card border-border">
                 <CardHeader className="pb-4">
-                    <CardTitle className="text-lg font-medium text-[#3D3835]">Proposal Details</CardTitle>
-                    <CardDescription className="text-[#7A756F]">
+                    <CardTitle className="text-lg font-medium text-foreground">Proposal Details</CardTitle>
+                    <CardDescription className="text-muted-foreground">
                         Describe your research in detail for the ethics review committee.
                     </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-5">
                     <div className="space-y-2">
-                        <Label htmlFor="title" className="text-[#4A4540]">
+                        <Label htmlFor="title" className="text-foreground">
                             Proposal Title
                         </Label>
                         <Input
@@ -158,12 +158,12 @@ export default function NewProposalPage() {
                             placeholder="Enter a descriptive title for your research proposal"
                             value={title}
                             onChange={(e) => setTitle(e.target.value)}
-                            className="bg-white border-[#E8E3DB] text-[#3D3835] placeholder:text-[#A8A39D] focus:border-[#C77B58] focus:ring-[#C77B58]"
+                            className="bg-background border-border text-foreground placeholder:text-muted-foreground focus-visible:ring-ring"
                         />
                     </div>
 
                     <div className="space-y-2">
-                        <Label className="text-[#4A4540]">Proposal Content</Label>
+                        <Label className="text-foreground">Proposal Content</Label>
                         <ProposalEditor
                             content={content}
                             onChange={setContent}
